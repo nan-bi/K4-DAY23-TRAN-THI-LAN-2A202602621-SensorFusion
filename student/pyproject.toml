@@ -18,3 +18,10 @@ dependencies = [
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["workspace*"]
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore:the matrix subclass is not the recommended way:PendingDeprecationWarning",
+    "ignore:invalid value encountered in matmul:RuntimeWarning",
+]
+
