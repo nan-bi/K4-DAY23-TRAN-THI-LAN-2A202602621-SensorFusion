@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Baseline (LiDAR Only)",
+    "rmse_m": 0.15114084662699306,
+    "mean_innov_px": 0.0,
+    "rejection_rate_pct": 0.0
+  },
+  {
+    "name": "Calibrated Fusion (0.0\u00b0 / 0.0m)",
+    "rmse_m": 0.1412346142470476,
+    "mean_innov_px": 7.218986106606596,
+    "rejection_rate_pct": 2.0
+  },
+  {
+    "name": "Yaw Offset +1.0\u00b0 (+0.017 rad)",
+    "rmse_m": 0.18713441547400628,
+    "mean_innov_px": 18.868920359088424,
+    "rejection_rate_pct": 42.0
+  },
+  {
+    "name": "Yaw Offset +2.5\u00b0 (+0.044 rad)",
+    "rmse_m": 0.15114084662699306,
+    "mean_innov_px": 44.41378758947483,
+    "rejection_rate_pct": 100.0
+  },
+  {
+    "name": "Yaw Offset +5.0\u00b0 (+0.087 rad)",
+    "rmse_m": 0.15114084662699306,
+    "mean_innov_px": 88.13035768529988,
+    "rejection_rate_pct": 100.0
+  },
+  {
+    "name": "Lateral Offset dy = +0.2 m",
+    "rmse_m": 0.16234876397925924,
+    "mean_innov_px": 9.93939518612339,
+    "rejection_rate_pct": 2.0
+  },
+  {
+    "name": "Lateral Offset dy = +0.5 m",
+    "rmse_m": 0.18313241205789016,
+    "mean_innov_px": 18.309667348800414,
+    "rejection_rate_pct": 34.0
+  },
+  {
+    "name": "Lateral Offset dy = +1.0 m",
+    "rmse_m": 0.156133302483873,
+    "mean_innov_px": 34.508078996375296,
+    "rejection_rate_pct": 90.0
+  }
+]

@@ -68,7 +68,30 @@ File per-mode `metrics_lidar.json`, `metrics_fused.json`, `grade_run_lidar.log`,
 
 ## Bonus (không bắt buộc)
 
-- Không
+Đã hoàn thành đầy đủ cả 3 hạng mục Bonus (+10 điểm) tại thư mục `student/bonus/` (chi tiết tại [student/bonus/README.md](bonus/README.md)):
+
+1. **Phân tích độ nhạy Calibration Camera Extrinsic (+4 điểm)**:
+   - File mã nguồn & số liệu: [`student/bonus/bonus_calibration_and_viz.py`](bonus/bonus_calibration_and_viz.py), [`student/bonus/calibration_results.json`](bonus/calibration_results.json).
+   - Đồ thị: [`student/bonus/calibration_sensitivity_curve.png`](bonus/calibration_sensitivity_curve.png).
+   - Bảng số liệu thực nghiệm:
+     | Kịch bản Extrinsic | Mean Innovation $\\|\gamma\\|_2$ | Cổng $\chi^2$ loại | 3D RMSE | Nhận xét |
+     |---|---|---|---|---|
+     | Baseline (LiDAR Only) | 0.00 px | 0.0% | 0.1511 m | Mốc đối chứng |
+     | Calibrated Fusion (0.0° / 0.0m) | 7.22 px | 2.0% | **0.1412 m** | Cải thiện độ chính xác so với LiDAR |
+     | Yaw Offset +1.0° (+0.017 rad) | 18.87 px | 42.0% | 0.1871 m | Sai số tăng do đo lệch lọt qua cổng $\chi^2$ |
+     | Yaw Offset +2.5° (+0.044 rad) | 44.41 px | 100.0% | 0.1511 m | Cổng $\chi^2$ loại 100%, tự thoái lui về mức LiDAR |
+     | Yaw Offset +5.0° (+0.087 rad) | 88.13 px | 100.0% | 0.1511 m | Cổng $\chi^2$ bảo vệ EKF không phân kỳ |
+     | Lateral Offset $dy = +0.2$ m | 9.94 px | 2.0% | 0.1623 m | Sai số tăng nhẹ |
+     | Lateral Offset $dy = +0.5$ m | 18.31 px | 34.0% | 0.1831 m | Bị cổng loại một phần |
+     | Lateral Offset $dy = +1.0$ m | 34.51 px | 90.0% | 0.1561 m | Gần như loại toàn bộ |
+   - **Nhận xét**: Khi camera bị lệch extrinsic, vector innovation $\gamma = z - h(x)$ tăng mạnh tỷ lệ thuận với độ lệch góc. Sai số nhỏ (< 1.0°) vẫn lọt qua cổng $\chi^2$ và làm xấu RMSE tracking ($0.1412 \to 0.1871$ m). Tuy nhiên khi sai số lớn ($\ge 2.5°$), khoảng cách Mahalanobis vượt ngưỡng $\chi^2$, cổng $\chi^2$ **từ chối 100% các phép đo camera bị lệch**, giúp tracker tự động thoái lui an toàn về hiệu năng của LiDAR-only ($0.1511$ m) và không bị phân kỳ.
+
+2. **Trực quan hoá Tracking trên BEV & Ảnh Camera (+3 điểm)**:
+   - [`student/bonus/bev_tracking_comparison.png`](bonus/bev_tracking_comparison.png): So sánh quỹ đạo BEV giữa Ground Truth, LiDAR Only, Fused Calibrated và Fused Miscalibrated.
+   - [`student/bonus/camera_projection_and_update.png`](bonus/camera_projection_and_update.png): Minh hoạ toạ độ chiếu $h(x)$, điểm đo camera $z$ và vector innovation $\gamma$ trên mặt phẳng ảnh 2D.
+
+3. **Export Track sang định dạng CVAT (+3 điểm)**:
+   - File JSON export: [`student/bonus/cvat_tracks_sample.json`](bonus/cvat_tracks_sample.json) sử dụng `fusion_lab.export_cvat.export_tracks_json`.
 
 ## Khai báo sử dụng AI (bắt buộc)
 
