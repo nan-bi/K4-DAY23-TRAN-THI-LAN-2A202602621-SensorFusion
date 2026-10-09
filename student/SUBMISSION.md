@@ -5,10 +5,11 @@
 ## Thông tin học viên
 
 - Họ tên: Trần Thị Lan
-- MSSV: 02621
+- MSSV: 2A202602621
 - Email: 2211090020@studenthuph.edu.vn
-- Link repo (fork): https://github.com/nan-bi/K4-Track4-Day23-Sensor-Fusion-Student-Tran-Thi-Lan-02621
-- Commit hash nộp (`git rev-parse HEAD`):
+- Link repo (fork): https://github.com/nan-bi/K4-L2L3-DAY23-TRAN-THI-LAN-2A202602621-SensorFusion
+- Commit hash nộp (`git rev-parse HEAD`): 4830917844c8dc29f42382ce1fbca09549d33a9f
+
 
 ## Tóm tắt kết quả
 
